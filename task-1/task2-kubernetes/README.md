@@ -14,7 +14,7 @@
 [#]kubectl appy -f todo-app-deployments.yaml
 [#]kubectl apply -f todo-app-service.yaml
 ```
-##Verify
+## Verify
 ```
 [#]kubectl get deploy
 [#]kubectl get pods
@@ -25,17 +25,20 @@
 [#]kubectl expose deployment todo-app-deployment --type=NodePort --port=31200
 [#]kubectl port-forward svc/todo-app-service 8010:8010 --address 0.0.0.0 &
 ```
-##Testing
+## Testing
 ```
 [#]curl http://hostip:8010/
 [#]Chrome: http://hostip:8010/
 ```
- # Applying Ingress
- - $kubectl apply -f todo-app-ingress.yaml
- - $kubectl get ingress
- - ------------------- Testing ---------------------------------------------
- - $curl -L http://example.com/
-
+## Applying Ingress
+```
+[#]kubectl apply -f todo-app-ingress.yaml
+[#]kubectl get ingress
+```
+## Testing
+``` 
+[#]curl -L http://example.com/
+```
 
 
 
