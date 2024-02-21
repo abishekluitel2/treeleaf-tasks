@@ -1,0 +1,43 @@
+---
+version: '3.8'
+services:
+  javawebapp:
+    image: abishekluitel/simplejavawebapp:latest
+    container_name: simplejavaapp
+    ports:
+      - "8080:8080"
+    networks:
+      - elk-network
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.15.2
+    container_name: elasticsearch
+    environment:
+      - discovery.type=single-node
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    networks:
+      - elk-network
+
+  logstash:
+    image: docker.elastic.co/logstash/logstash:7.15.2
+    container_name: logstash
+    volumes:
+      - ./logs/logstash.conf:/usr/share/logstash/pipeline/logstash.conf
+    ports:
+      - "5000:5000"
+    networks:
+      - elk-network
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.15.2
+    container_name: kibana
+    ports:
+      - "5601:5601"
+    networks:
+      - elk-network
+
+networks:
+  elk-network:
+    driver: bridge
+...
