@@ -1,0 +1,25 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployments
+  labels:
+    app: nginx
+    tier: webserver
+spec:
+  template:
+    metadata:
+     name: nginx-pods
+     labels:
+        app: nginx
+        tier: webserver
+    spec:
+     containers:
+      - name: nginx-containers
+        image: nginx:latest
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nginx
+      tier: webaserver
+...
