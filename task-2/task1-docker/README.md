@@ -3,7 +3,11 @@
 
 ## PREREQUISITES    
  1. Docker installations
-
+     - Please follow the documentation if not installed: 
+       ```
+       https://docs.docker.com/engine/
+       ```
+	
 ## Installation From Git
 ```
 [#] mkdir project ; cd project
