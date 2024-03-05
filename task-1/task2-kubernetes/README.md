@@ -1,5 +1,5 @@
-#PROJECT TITLE
- Simple React web todo list application deploy using the kubernetes:
+# PROJECT TITLE
+  Simple React web todo list application deploy using the kubernetes:
 
 # PREREQUISITE
  - kubernates installations
